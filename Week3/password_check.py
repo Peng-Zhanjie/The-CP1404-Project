@@ -11,14 +11,20 @@ def main():
     print("\t1 or more numbers")
     if SPECIAL_CHARS_REQUIRED:
         print("\tand 1 or more special characters: ", SPECIAL_CHARACTERS)
-    password = input("> ")
+    password = Getword()
     while not is_valid_password(password):
-        print("Invalid password!")
-        password = input("> ")
-    print("Your password is valid")
-    for i in range(len(word)):
+        print("It is an invalid password!")
+        password = Getword()
+    print("Your password is valid:",end=' ')
+    for i in range(len(password)):
         print("*",end='')
     print()
+
+def Getword():
+    loop=True
+    while(loop==True):
+        word=input("Enter your word here:")
+        if(word!=""):return word
 
 
 def is_valid_password(password):
