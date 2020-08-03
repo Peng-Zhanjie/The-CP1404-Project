@@ -40,16 +40,46 @@ def Random_Wordformat():
     if (count_special.upper()== "TRUE"): choic.append("S")
 
     for i in range(count_length):
-        x=random.choice(choic)
+        if len(choic)!=0:x=random.choice(choic)
+        else:x="Q"
         if x=="U": kind=random.choice(UPPERS)
         elif x=="L": kind=random.choice(LOWERS)
         elif x=="D": kind=random.choice(DIGITS)
         elif x== "S": kind=random.choice(SPECIAL_CHARACTERS)
-        word += kind
-    print("The word made by generator is",word)
+        if(x!="Q"):word += kind
+    if(word!=""):print("The word made by generator is",word)
+    else:print("Invalid input")
     if not is_valid_password(word):
         print("Invalid password!")
-    print("Your {}-character password is valid: {}".format(len(word),word))
+    else:print("Your {}-character password is valid: {}".format(len(word),word))
+
+def  is_valid_format(word_format):
+    Length=len(word_format)
+    Isvalid=True
+    for i in range(Length):
+        if(word_format[i]!="c")and(word_format[i]!="v"):Isvalid=False
+    if (Isvalid==True):return True
+    else:return False
+
+def Another_Input_Wordformat():
+  Reloop=True
+  while(Reloop==True):
+    word_format = input("Please enter your words with 'c','v':")
+    word_format=word_format.lower()
+    word = ""
+    if(is_valid_format(word_format)==True):
+      Reloop=False
+      for kind in word_format:
+          if kind == "c":
+              word += random.choice(CONSONANTS)
+          elif kind =="v":
+              word += random.choice(VOWELS)
+          elif kind.isalpha()==True:
+              word += kind
+    else:
+        print("Invalid word format")
+
+  print(word)
 
 def is_valid_password(password):
     """Determine if the provided password is valid."""
@@ -79,4 +109,5 @@ def is_valid_password(password):
 
 
 Input_Wordformat()
+Another_Input_Wordformat()
 Random_Wordformat()
