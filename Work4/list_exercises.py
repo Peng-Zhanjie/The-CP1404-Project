@@ -1,14 +1,17 @@
 usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface', 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer', 'bob']
 def main():
     numbers=[]
+    Count=0
     read=True
     while (read!=False):
         try:
-            number=int(input("Please enter number:"))
-
-        except ValueError:print("ValueError")
+            number=int(input("Please enter number{}:".format(Count+1)))
+        except ValueError:
+            print("ValueError")
+            continue
         if(number>=0):
             numbers.append(number)
+            Count+=1
         else:
             print("Input finished")
             read=False
