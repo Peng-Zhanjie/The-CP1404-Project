@@ -1,4 +1,4 @@
-Record={}W
+Record={}
 Words=input("Text:")
 Words=Words.split(' ')
 length=0
