@@ -16,8 +16,8 @@ class SilverServiceTaxi(Taxi):
         return fare
 
     def __str__(self):
-        return "{}, fuel={}, odo={}, {}km on current fare, ${:.2f}/km plus flagfall of ${:.2f}".format(self.name, self.fuel,
-                                                                                               self.odometer,
-                                                                                               self.current_fare_distance,
-                                                                                               self.price,
-                                                                                               self.flagfall)
+        return '{}, fuel={}, odo={}, {}km on current fare, ${:.2f}/km plus flagfall of ${:.2f}'.format(self.name, self.fuel,
+                                                                                                       self.odometer,
+                                                                                                       self.current_fare_distance,
+                                                                                                       self.price,
+                                                                                                       self.flagfall)
